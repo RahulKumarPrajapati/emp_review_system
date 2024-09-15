@@ -5,5 +5,5 @@
 3. RUN cd ../server && npm i
 4. In .env file put your MONGO URI in MONGO_URI and your Gemini api key in GEMINI_API_KEY
 5. If you are changing PORT in .env make sure to change the port in API_URL inside client/src/shared/CONSTANT.js file as well
-6. If you recat is running in port oother than 3000 then update it in CORS poliy inside file server/app.js
+6. If you react is running in port oother than 3000 then update it in CORS poliy inside file server/app.js
 7. RUN node app.js
