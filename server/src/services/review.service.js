@@ -57,11 +57,14 @@ exports.getAllReviews = async (skip = 0, limit = 10) => {
             {
               // Group by employeeId to get the latest review for each employee
               $group: {
-                _id: "$employeeId",
+                _id: "$_id",
                 latestReview: { $first: "$reviews" },
                 name: { $first: "$name" },
                 feedbackGenerated: { $first: "$feedbackGenerated" }
               }
+            },
+            {
+                $sort: { _id: 1 }
             },
             {
                 $skip: skip
@@ -71,7 +74,7 @@ exports.getAllReviews = async (skip = 0, limit = 10) => {
             },
             {
               $project: {
-                _id: 0,
+                _id: 1,
                 latestReview: 1,
                 name:1,
                 feedbackGenerated: 1
